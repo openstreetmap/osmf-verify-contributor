@@ -24,7 +24,7 @@
   <version>1.0</version>
   <develStage>alpha</develStage>
   <compatibility>
-    <ver>5.36</ver>
+    <ver>5.73</ver>
   </compatibility>
   <requires>
     <ext>oauth-client</ext>
@@ -36,8 +36,15 @@
   <classloader>
     <psr4 prefix="Civi\" path="Civi"/>
     <psr4 prefix="Osmf\" path="Osmf"/>
+    <psr0 prefix="CRM_" path="."/>
   </classloader>
   <civix>
     <namespace>CRM/OsmfVerifyContributor</namespace>
+    <format>23.02.1</format>
   </civix>
+  <mixins>
+    <mixin>menu-xml@1.0.0</mixin>
+    <mixin>smarty-v2@1.0.1</mixin>
+  </mixins>
+  <upgrader>CRM_OsmfVerifyContributor_Upgrader</upgrader>
 </extension>
