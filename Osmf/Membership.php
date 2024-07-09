@@ -30,9 +30,9 @@ class Membership {
       return;
     }
 
-    $contributionPageId = $params['contribution']->contribution_page_id ?? NULL;
-    $membershipId = $params['id'] ?? NULL;
-    $contactId = $params['contact_id'] ?? NULL;
+    $contributionPageId = (int) $params['contribution']->contribution_page_id ?? NULL;
+    $membershipId = (int) $params['id'] ?? NULL;
+    $contactId = (int) $params['contact_id'] ?? NULL;
 
     if (self::weAreProcessingAContributionPageSubmission(
       $contributionPageId, $membershipId, $contactId)) {
@@ -57,9 +57,9 @@ class Membership {
   }
 
   private static function weAreProcessingAContributionPageSubmission(
-    $contributionPageId,
-    $membershipId,
-    $contactId): bool {
+    int $contributionPageId,
+    int $membershipId,
+    int $contactId): bool {
     return !empty($contributionPageId)
     || (!empty($membershipId) && $membershipId === self::$submittedFormVals['membershipId'])
     || (!empty($contactId) && $contactId === self::$submittedFormVals['contactId']);
